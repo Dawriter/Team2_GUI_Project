@@ -1,0 +1,19 @@
+{
+	"origami":[
+		{"model":"Blue Elephant", "quantity":3, "price":5.50, "image":"blue_elephant.png"},
+		{"model":"Blue Geometric Rose", "quantity":5, "price":2.30, "image":"blue_geometric_rose.png"},
+        {"model":"Blue Iris", "quantity":6, "price":5.00, "image":"blue_iris.png"},
+        {"model":"Gold Geometric Rose", "quantity":1, "price":3.50, "image":"gold_geometric_rose.png"},
+        {"model":"Lavender Camillia", "quantity":4, "price":2.35, "image":"lavender_camillia.png"},
+        {"model":"Plum Camillia", "quantity":7, "price":2.535, "image":"plum_camillia.png"},
+        {"model":"Purple and Green Wreath", "quantity":3, "price":6.00, "image":"purple_and_green_wreath.png"},
+        {"model":"Purple Iris", "quantity":4, "price":5.00, "image":"purple_iris.png"},
+        {"model":"Purple T-Rex", "quantity":1, "price":7.50, "image":"purple_trex.png"},
+        {"model":"Red Geometric Rose", "quantity":2, "price":2.30, "image":"red_geometric_rose.png"},
+        {"model":"Shiny Red Camillia", "quantity":1, "price":5.00, "image":"shiny_red_camillia.png"},
+        {"model":"Sonobe Octohedron", "quantity":3, "price":12.45, "image":"sonobe_octohedron.png"},
+        {"model":"Teal Flippy Frog", "quantity":10, "price":1.20, "image":"teal_flippy_frog.png"},
+        {"model":"Twinboat Icosahedron", "quantity":1, "price":20.00, "image":"twinboat_icosahedron.png"},
+        {"model":"Yellow Iris", "quantity":5, "price":5.00, "image":"yellow_iris.png"}
+	]
+}
