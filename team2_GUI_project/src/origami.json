@@ -1,5 +1,4 @@
-{
-    "origami": [
+[
         {
             "model": "Blue Elephant",
             "quantity": 3,
@@ -90,5 +89,4 @@
             "price": 5.00,
             "image": "yellow_iris.png"
         }
-    ]
-}
+]
