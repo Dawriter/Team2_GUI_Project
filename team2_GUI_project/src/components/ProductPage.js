@@ -6,7 +6,6 @@ import {React, useState} from 'react';
 
 export default function ProductPage() {
 
-
   const miscList = origamiList.filter(
     (origami) => {
       return origami.category === "Misc.";
@@ -22,11 +21,11 @@ export default function ProductPage() {
   const [flowers, setFlowers] = useState(flowerList);
 
   const tryAddFlowerToCart = (idToAdd) => {
-	// const flowerToAdd = flowers.filter(
-	// 	(flower) => {return flower.id === idToAdd}
-	// )
+	const flowerToAdd = flowers.filter(
+		(flower) => {return flower.id === idToAdd}
+	)
 
-	// should probably just use a for loop for this grrr
+	// Maps idToAdd to its index in flowers. Maybe inefficient but works.
 	for (var i = 0; i < flowers.length; i++)
 	{
 		if (flowers[i].id === idToAdd)
@@ -43,7 +42,10 @@ export default function ProductPage() {
 		alert("Out of stock!");
 	}
 
-	setFlowers(flowers);
+	// Needed so that the state will recognize that it needs to rerender.
+	// If I just pass flowers again, it will not rerender.
+	let newFlowers = [...flowers];
+	setFlowers(newFlowers);
   }
 
   return (
