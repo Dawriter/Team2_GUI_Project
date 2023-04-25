@@ -1,5 +1,8 @@
 import Origami from "./Origami.js"
-import origamiList from "../data/origami.json"
+import origamiList from "../data/origami.json"  
+import 'bootstrap/dist/css/bootstrap.css';
+import { Row, Col } from 'react-bootstrap';
+import useState from 'react';
 
 export default function ProductPage() {
 
@@ -18,20 +21,31 @@ export default function ProductPage() {
   return (
 
     <div className="ProductPage">
-    {
-			miscList.map(origami => (
-			<Origami model={origami.model} price={origami.price} image={origami.image}
-			quantity={origami.quantity}/>
-		))
-  		}
-
-      <hr />
+	<h1>Products</h1>
+	<h2>Flowers</h2>
+	<Row lg='d-grid gap-3'>
     {
 			flowerList.map(origami => (
+			<Col md="11" lg="3" className="mx-auto p-2 border bg-secondary rounded border-4 border-dark">
 			<Origami model={origami.model} price={origami.price} image={origami.image}
 			quantity={origami.quantity}/>
+			</Col>
 		))
-  		}
+	}
+	</Row>
+	<hr />
+	<h2>Other Objects</h2>
+	<Row lg='d-grid gap-3'>
+	{
+		miscList.map(origami => (
+		<Col md="11" lg="3" className="mx-auto p-2 border bg-secondary rounded border-4 border-dark">
+		<Origami model={origami.model} price={origami.price} image={origami.image}
+		quantity={origami.quantity}/>
+		</Col>
+	))
+	}
+	</Row>
+
   </div>
 
   )
