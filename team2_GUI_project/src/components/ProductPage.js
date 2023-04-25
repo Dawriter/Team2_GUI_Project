@@ -48,6 +48,36 @@ export default function ProductPage() {
 	setFlowers(newFlowers);
   }
 
+  const [miscs, setMiscs] = useState(miscList);
+
+  const tryAddMiscToCart = (idToAdd) => {
+	const miscToAdd = miscs.filter(
+		(misc) => {return misc.id === idToAdd}
+	)
+
+	// Maps idToAdd to its index in flowers. Maybe inefficient but works.
+	for (var i = 0; i < miscs.length; i++)
+	{
+		if (miscs[i].id === idToAdd)
+			break;
+	}
+	
+	if (miscs[i].quantity > 0)
+	{
+		miscs[i].quantity -= 1;
+		alert("Added " + miscs[i].model + " to cart!");
+	}
+	else
+	{
+		alert("Out of stock!");
+	}
+
+	// Needed so that the state will recognize that it needs to rerender.
+	// If I just pass flowers again, it will not rerender.
+	let newMiscs = [...miscs];
+	setMiscs(newMiscs);
+  }
+
   return (
 
     <div className="ProductPage">
@@ -72,7 +102,7 @@ export default function ProductPage() {
 		<Col md="11" lg="3" className="mx-auto p-2 border bg-secondary rounded border-4 border-dark">
 		<img width="150px" height="150px" src={require('../data/images/' + origami.image + ".png")} alt={origami.image}></img>
 		<Origami model={origami.model} price={origami.price} quantity={origami.quantity} key={origami.id}
-		clickFunc={tryAddFlowerToCart} id={origami.id}/>
+		clickFunc={tryAddMiscToCart} id={origami.id}/>
 		</Col>
 		))
 	}
