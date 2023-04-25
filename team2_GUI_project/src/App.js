@@ -1,18 +1,15 @@
 import './App.css';
-import Origami from "./components/Origami.js"
-import origamiList from "./data/origami.json"
+import ProductPage from "./components/ProductPage.js"
 
 
 function App() {
-  return (
 
+  return (
+    // this whole thing within the div should be wrapped in a router.
+    // there should be a navbar at the top of the screen to swap between pages.
     <div className="App">
-    {
-			origamiList.map(origami => (
-			<Origami model={origami.model} price={origami.price} image={origami.image}
-			quantity={origami.quantity}/>
-		))
-  		}
+    
+    <ProductPage />
   </div>
 
   )
