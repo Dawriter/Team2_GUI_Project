@@ -1,6 +1,6 @@
 import './App.css';
 import Origami from "./components/Origami.js"
-import origamiList from "./origami.json"
+import origamiList from "./data/origami.json"
 
 
 function App() {
