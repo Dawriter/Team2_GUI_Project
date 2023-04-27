@@ -15,6 +15,7 @@ export default class StoreNavBar extends Component {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Link className="nav_item" to="/">Browse</Link>
+              <Link className="nav-item" to="/cart">Shopping Cart</Link>
               <Link className="nav_item" to="/checkout">Check Out</Link>
             </Nav>
           </Navbar.Collapse>

@@ -1,5 +1,6 @@
 import './App.css';
 import ProductPage from "./components/ProductPage.js"
+import CheckOut from "./components/checkout.js"
 //import ShoppingCart from "./components/shoppingcart.js"
 import 'bootstrap/dist/css/bootstrap.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -19,7 +20,8 @@ function App() {
         <StoreNavBar />
         <Routes>
           <Route path="/" element = {<ProductPage />} />
-           <Route path="/checkout" element = {<ShoppingCart />} />
+           <Route path="/cart" element = {<ShoppingCart />} />
+           <Route path="/checkout" element = {<CheckOut />} />
         </Routes>
       </Router>
     </Container>
