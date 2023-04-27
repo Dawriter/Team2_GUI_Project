@@ -31,9 +31,10 @@ export default function ProductPage() {
 	var unique = true;
 	var index;
 
+	// search cart for duplicate items.
 	for (index = 0; index < cart.length; index++) {
 		if (origami[0].id === cart[index][0].id)
-		{
+		{ // If selected item is already in the cart, increase its quantity by 1 instead of adding it again.
 			unique = false;
 			cart[index][0].quantity++;
 			console.log(index, cart[index][0].quantity);
