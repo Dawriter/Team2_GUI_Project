@@ -5,7 +5,9 @@ function ShoppingCart() {
 
     const oragami = [
         { "model": "model1", "price": 10, "id": "1", "image": "./cinnimon.png" },
-        { "model": "model2", "price": 20, "id": "2", "image": "./cinnimon.png" }
+        { "model": "model2", "price": 20, "id": "2", "image": "./cinnimon.png" },
+        { "model": "model3", "price": 30, "id": "3", "image": "./cinnimon.png" },
+        { "model": "model4", "price": 40, "id": "4", "image": "./cinnimon.png" }
     ];
 
     const [oragamiset, setOragami] = useState(oragami);
@@ -38,12 +40,6 @@ function ShoppingCart() {
         console.log("Total: " + total);
     }
 
-    function totalItems() {
-        for (let i = 0; i < items.length; i++) {
-
-        }
-    }
-
     return (
         <div className="container">
             <h1 className="col-10">Shopping Cart</h1>
@@ -62,17 +58,18 @@ function ShoppingCart() {
                     </div>
                 ))}
             </div>
+            <div className='row'>
+            <h5 className="col-4">Item</h5>
+            <h5 className="col-4">Price</h5>
+            </div>
             <div className="row">
-                <h3 className="">Cart Total:</h3>
-                <div>
-                    <table class="table table-striped-columns">
-                    {items.map(item => <div key={item.id}>{item.model}</div>)}
-                    {items.map(item => <div key={item.id}>{item.price}</div>)}
-                    </table>
-
-
+                <div className="col-4">{items.map(item => <div key={item.id}>{item.model}</div>)}</div>
+                <div className="col-4">{items.map(item => <div key={item.id}>{item.price}</div>)}</div>             
+                <hr/>
+                <div className="row">
+                    <h6 className="col-4">Total:</h6>
+                    <div className="col-4">{total}</div>
                 </div>
-                <div className=''>{total}</div>
             </div>
         </div>
     );
