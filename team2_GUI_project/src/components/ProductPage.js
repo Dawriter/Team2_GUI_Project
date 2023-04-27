@@ -6,6 +6,15 @@ import {React, useState} from 'react';
 
 export default function ProductPage() {
 
+	var cart = []; // Local version of the shopping cart. Used for adding to it when button is clicked.
+
+	if (localStorage.getItem("shoppingCart") != null)
+	{
+		cart = JSON.parse(localStorage.getItem("shoppingCart"));
+	}
+
+	console.log(cart); // debug
+
   const miscList = origamiList.filter(
     (origami) => {
       return origami.category === "Misc.";
@@ -17,6 +26,33 @@ export default function ProductPage() {
       return origami.category === "Flower";
     }
   )
+
+  const addObjectToLocalStorage = (origami) => {
+	var unique = true;
+	var index;
+
+	for (index = 0; index < cart.length; index++) {
+		if (origami[0].id === cart[index][0].id)
+		{
+			unique = false;
+			cart[index][0].quantity++;
+			console.log(index, cart[index][0].quantity);
+			break;
+		}
+	}
+
+	if (unique)
+	{
+		index = cart.push(origami);
+		localStorage.setItem("shoppingCart", JSON.stringify(cart));
+		// stupid thing to make sure it only sets the quantity of the cart, and not the original product.
+		// If you wanna know why, google "pass by reference". Lol.
+		cart = JSON.parse(localStorage.getItem("shoppingCart"));
+		cart[index - 1][0].quantity = 1;
+	}
+	
+		localStorage.setItem("shoppingCart", JSON.stringify(cart));
+  }
 
   const [flowers, setFlowers] = useState(flowerList);
 
@@ -36,6 +72,7 @@ export default function ProductPage() {
 	{
 		flowers[i].quantity -= 1;
 		alert("Added " + flowers[i].model + " to cart!");
+		addObjectToLocalStorage(flowerToAdd);
 	}
 	else
 	{
@@ -66,6 +103,7 @@ export default function ProductPage() {
 	{
 		miscs[i].quantity -= 1;
 		alert("Added " + miscs[i].model + " to cart!");
+		addObjectToLocalStorage(miscToAdd);
 	}
 	else
 	{
