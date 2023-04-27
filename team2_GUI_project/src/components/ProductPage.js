@@ -104,7 +104,7 @@ export default function ProductPage() {
 	{
 		miscs[i].quantity -= 1;
 		alert("Added " + miscs[i].model + " to cart!");
-		addObjectToLocalStorage(miscToAdd);
+		addObjectToLocalStorage(miscToAdd[0]);
 	}
 	else
 	{
