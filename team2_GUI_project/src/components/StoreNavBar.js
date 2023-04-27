@@ -8,7 +8,9 @@ export default class StoreNavBar extends Component {
     return (
       <Navbar bg="light" expand="lg" sticky="top" variant="light">
         <Container>
-          <Navbar.Brand href="http://martinyeh.com">Origami</Navbar.Brand>
+          <Link className="nav_item" to="/">
+          <Navbar.Brand>Origami</Navbar.Brand>
+          </Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
