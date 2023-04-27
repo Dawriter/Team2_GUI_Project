@@ -2,19 +2,6 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 
 function ShoppingCart() {
-
-    const oragami = [
-        { "model": "model1", "price": 10, "id": "1", "image": "./cinnimon.png" },
-        { "model": "model2", "price": 20, "id": "2", "image": "./cinnimon.png" },
-        { "model": "model3", "price": 30, "id": "3", "image": "./cinnimon.png" },
-        { "model": "model4", "price": 40, "id": "4", "image": "./cinnimon.png" }
-    ];
-
-    const [oragamiset, setOragami] = useState(oragami);
-    localStorage.setItem("shoppingCart", JSON.stringify(oragami));
-
-
-
     const [items, setItems] = useState([]);
 
     const delItem = (itemId) => {
@@ -25,6 +12,7 @@ function ShoppingCart() {
         console.log("New Storage: " + localStorage.getItem("shoppingCart"))
     }
 
+
     useEffect(() => {
         const data = JSON.parse(localStorage.getItem('shoppingCart'));
         if (data) {
@@ -33,6 +21,7 @@ function ShoppingCart() {
     }, []);
 
     console.log(JSON.parse(localStorage.getItem("shoppingCart")));
+
 
     var total = 0;
     for (let i = 0; i < items.length; i++) {
@@ -48,7 +37,7 @@ function ShoppingCart() {
                 {items.map((item) => (
                     <div className="col-md-4" key={item.id}>
                         <div className="card mb-4 shadow-sm">
-                            <img src={require(`${item.image}`)} className="card-img-top" />
+                            <img src={require("../data/images/" + item.image + ".png")} className="card-img-top" />
                             <div className="card-body">
                                 <h3 className="card-title">{item.model}</h3>
                                 <p className="card-text">Price: {item.price}</p>

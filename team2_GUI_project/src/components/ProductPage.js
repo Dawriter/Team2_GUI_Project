@@ -33,11 +33,11 @@ export default function ProductPage() {
 
 	// search cart for duplicate items.
 	for (index = 0; index < cart.length; index++) {
-		if (origami[0].id === cart[index][0].id)
+		if (origami.id === cart[index].id)
 		{ // If selected item is already in the cart, increase its quantity by 1 instead of adding it again.
 			unique = false;
-			cart[index][0].quantity++;
-			console.log(index, cart[index][0].quantity);
+			cart[index].quantity++;
+			console.log(index, cart[index].quantity);
 			break;
 		}
 	}
@@ -49,7 +49,7 @@ export default function ProductPage() {
 		// stupid thing to make sure it only sets the quantity of the cart, and not the original product.
 		// If you wanna know why, google "pass by reference". Lol.
 		cart = JSON.parse(localStorage.getItem("shoppingCart"));
-		cart[index - 1][0].quantity = 1;
+		cart[index - 1].quantity = 1;
 	}
 	
 		localStorage.setItem("shoppingCart", JSON.stringify(cart));
@@ -73,7 +73,7 @@ export default function ProductPage() {
 	{
 		flowers[i].quantity -= 1;
 		alert("Added " + flowers[i].model + " to cart!");
-		addObjectToLocalStorage(flowerToAdd);
+		addObjectToLocalStorage(flowerToAdd[0]);
 	}
 	else
 	{
@@ -104,7 +104,7 @@ export default function ProductPage() {
 	{
 		miscs[i].quantity -= 1;
 		alert("Added " + miscs[i].model + " to cart!");
-		addObjectToLocalStorage(miscToAdd);
+		addObjectToLocalStorage(miscToAdd[0]);
 	}
 	else
 	{
