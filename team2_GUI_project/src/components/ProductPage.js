@@ -2,7 +2,7 @@ import Origami from "./Origami.js"
 import origamiList from "../data/origami.json"  
 import 'bootstrap/dist/css/bootstrap.css';
 import { Row, Col } from 'react-bootstrap';
-import {React, useState} from 'react';
+import {React, useState, useEffect} from 'react';
 
 export default function ProductPage() {
 
@@ -13,7 +13,27 @@ export default function ProductPage() {
 		cart = JSON.parse(localStorage.getItem("shoppingCart"));
 	}
 
-	console.log(cart); // debug
+	{
+	
+	
+	const deletedItems = JSON.parse(localStorage.getItem("deletedItems"));
+	
+	// If an item was deleted from the shopping cart, re-adds it to the quantity.
+	if (deletedItems != null)
+	{
+		for (var i = 0; i < deletedItems.length; i++)
+		{
+			var item = origamiList.find(item => item.id === deletedItems[i].id);
+			if (item)
+			{
+				item.quantity++;
+			}
+		}
+
+		const empty = [];
+		localStorage.setItem("deletedItems", JSON.stringify(empty));
+	}
+	}
 
   const miscList = origamiList.filter(
     (origami) => {
