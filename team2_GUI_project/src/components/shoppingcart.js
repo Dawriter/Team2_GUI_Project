@@ -7,34 +7,18 @@ function ShoppingCart() {
     //delete items from shopping cart
     const delItem = (itemId) => {
         const item = items.find(item => item.id === itemId);
-
-        var deletedItems = [];
-
-        if (localStorage.getItem("deletedItems") != null)
-        {
-            deletedItems = JSON.parse(localStorage.getItem("deletedItems"));
-        }
         if (item) {
-            const quantity = item.quantity;
-            
-            // add the item to delete to storage, so that it will be re-added to the quantity
-            // of the product next time the ProductPage is opened.
-            const index = deletedItems.push(item);
-            localStorage.setItem("deletedItems", JSON.stringify(deletedItems));
-            deletedItems = JSON.parse(localStorage.getItem("deletedItems"));
-		    deletedItems[index - 1].quantity = 1;
-            localStorage.setItem("deletedItems", JSON.stringify(deletedItems));
-
-            if (quantity > 1) { //check to see quantity, if > 1 remove 1 from cart, if 1 then remove entire item from cart
-                const updatedItems = items.map(item => item.id === itemId ? { ...item, quantity: item.quantity - 1 } : item);
-                setItems(updatedItems);
-                localStorage.setItem("shoppingCart", JSON.stringify(updatedItems));
-            } 
-            else {
-                const updatedItems = items.filter(item => item.id !== itemId);
-                setItems(updatedItems);
-                localStorage.setItem("shoppingCart", JSON.stringify(updatedItems));
-            }
+          const quantity = item.quantity;
+          if (quantity > 1) { //check to see quantity, if > 1 remove 1 quantity from cart, if 1 then remove entire item from cart
+            const updatedItems = items.map(item => item.id === itemId ? { ...item, quantity: item.quantity - 1 } : item);
+            setItems(updatedItems);
+            localStorage.setItem("shoppingCart", JSON.stringify(updatedItems));
+          } 
+          else {
+            const updatedItems = items.filter(item => item.id !== itemId);
+            setItems(updatedItems);
+            localStorage.setItem("shoppingCart", JSON.stringify(updatedItems));
+          }
         }
       }
       
@@ -64,7 +48,7 @@ function ShoppingCart() {
                 {items.map((item) => (
                     <div className="col-md-4" key={item.id}>
                         <div className="card mb-4 shadow-sm">
-                            <img src={require("../data/images/" + item.image + ".png")} className="card-img-top" alt={item.image}/>
+                            <img src={require("../data/images/" + item.image + ".png")} className="card-img-top" />
                             <div className="card-body">
                                 <h3 className="card-title">{item.model}</h3>
                                 <p className="card-text">Price: {item.price}</p>
@@ -82,14 +66,34 @@ function ShoppingCart() {
                 <h5 className="col-4">Price</h5>
             </div>
             <div className="row">
-                <div className="col-4">{items.map(item => <div key={item.id}>{item.model}</div>)}</div>
-                <div className="col-4">{items.map(item => <div key={item.id}>{item.quantity}</div>)}</div>
-                <div className="col-4">{items.map(item => <div key={item.id}>${item.price * item.quantity}</div>)}</div>
-                <hr />
-                <div className="row">
-                    <h5 className="col-4">Total:</h5>
-                    <div className="col-4"/>
-                    <div className="col-4">${total}</div>
+                <div>
+            <table className="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {items.map((item) => (
+                            <tr key={item.id}>
+                                <td>{item.model}</td>
+                                <td>${item.price}</td>
+                                <td>{item.quantity}</td>
+                                <td>${item.price * item.quantity}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td><strong>Total:</strong></td>
+                            <td><strong>${total.toFixed(2)}</strong></td>
+                        </tr>
+                    </tfoot>
+                </table>
                 </div>
             </div>
         </div>
