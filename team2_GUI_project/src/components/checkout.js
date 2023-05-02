@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 
+// Check-out page. Handles the "shipping information" and shows invoice when done.
+// Main dev: Gavin Doyle
+
 function ChcekOut() {
     const [items, setItems] = useState([]);
     const [showInvoice, setShowInvoice] = useState(false);

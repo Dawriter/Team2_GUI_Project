@@ -1,4 +1,4 @@
-
+// Basic class for passing around shop item objects.
 
 export default function Origami(props) {
 

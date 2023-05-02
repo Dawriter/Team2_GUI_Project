@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { Navbar, Container, Nav} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+// Basic component for navigating via the router.
+
 export default class StoreNavBar extends Component {
   render() {
     return (
@@ -14,8 +16,9 @@ export default class StoreNavBar extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Link className="nav_item" to="/">Browse</Link>
-              <Link className="nav-item" to="/cart">Shopping Cart</Link>
+              <Link className="nav_item" to="/">Home</Link>
+              <Link className="nav_item" to="/products">Browse</Link>
+              <Link className="nav_item" to="/cart">Shopping Cart</Link>
               <Link className="nav_item" to="/checkout">Check Out</Link>
             </Nav>
           </Navbar.Collapse>

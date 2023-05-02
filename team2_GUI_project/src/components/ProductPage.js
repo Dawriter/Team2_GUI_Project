@@ -4,6 +4,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { Row, Col } from 'react-bootstrap';
 import {React, useState} from 'react';
 
+// Product page. Displays items from origami.json and handles adding them to shopping cart.
+// Main dev: Dan Smith
+
 export default function ProductPage() {
 
 	var cart = []; // Local version of the shopping cart. Used for adding to it when button is clicked.

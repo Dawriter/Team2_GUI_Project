@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 
+// Shopping cart. Handles displaying price totals of items in cart, and removing items from the cart.
+// Main dev: Gavin Doyle
+
 function ShoppingCart() {
     const [items, setItems] = useState([]);
 

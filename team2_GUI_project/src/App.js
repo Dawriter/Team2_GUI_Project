@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import StoreNavBar from './components/StoreNavBar';
 import ShoppingCart from './components/shoppingcart';
+import Landing from './components/Landing';
 
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
       <Router>
         <StoreNavBar />
         <Routes>
-          <Route path="/" element = {<ProductPage />} />
+          <Route path="/" element = {<Landing />} />
+          <Route path="/products" element = {<ProductPage />} />
            <Route path="/cart" element = {<ShoppingCart />} />
            <Route path="/checkout" element = {<CheckOut />} />
         </Routes>
