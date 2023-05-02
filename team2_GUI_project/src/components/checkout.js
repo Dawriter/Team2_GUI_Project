@@ -17,10 +17,14 @@ function ChcekOut() {
     }, []);
 
     //get totals
+    var subtotal = 0;
+    var tax = 0;
     var total = 0;
     for (let i = 0; i < items.length; i++) {
-        total += items[i].price;
-    }
+        subtotal += (items[i].price * items[i].quantity);
+    } // item total
+    tax = subtotal * 0.06; // taxes
+    total = subtotal + tax; // full total
 
     const confirmShipping = (event) => {
         event.preventDefault(); //prevents component from being reloaded and messing stuff up
@@ -76,7 +80,15 @@ function ChcekOut() {
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td><strong>Total + Tax:</strong></td>
+                        <td><strong>Subtotal:</strong></td>
+                        <td><strong>${subtotal.toFixed(2)}</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tax:</strong></td>
+                        <td><strong>${tax.toFixed(2)}</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total:</strong></td>
                         <td><strong>${total.toFixed(2)}</strong></td>
                         <td>
                             {!showInvoice ? <button onClick={handleCheckout}>Check Out</button> :null}

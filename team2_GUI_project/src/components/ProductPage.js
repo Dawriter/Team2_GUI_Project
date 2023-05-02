@@ -148,7 +148,7 @@ export default function ProductPage() {
 	<Row lg='d-grid gap-3'>
     {
 		flowers.map((origami) => (
-		<Col md="11" lg="3" className="mx-auto p-2 border bg-secondary rounded border-4 border-dark">
+		<Col md="3" lg="2" className="mx-auto p-2 border bg-secondary rounded border-4 border-dark">
 		<img width="150px" height="150px" src={require('../data/images/' + origami.image + ".png")} alt={origami.image}></img>
 		<Origami model={origami.model} price={origami.price} quantity={origami.quantity} key={origami.id}
 		clickFunc={tryAddFlowerToCart} id={origami.id}/>
@@ -161,7 +161,7 @@ export default function ProductPage() {
 	<Row lg='d-grid gap-3'>
 	{
 		miscList.map(origami => (
-		<Col md="11" lg="3" className="mx-auto p-2 border bg-secondary rounded border-4 border-dark">
+		<Col md="3" lg="2" className="mx-auto p-2 border bg-secondary rounded border-4 border-dark">
 		<img width="150px" height="150px" src={require('../data/images/' + origami.image + ".png")} alt={origami.image}></img>
 		<Origami model={origami.model} price={origami.price} quantity={origami.quantity} key={origami.id}
 		clickFunc={tryAddMiscToCart} id={origami.id}/>

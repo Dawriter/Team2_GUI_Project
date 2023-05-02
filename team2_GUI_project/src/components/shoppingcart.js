@@ -107,7 +107,7 @@ function ShoppingCart() {
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td><strong>Total:</strong></td>
+                            <td><strong>Subtotal:</strong></td>
                             <td><strong>${total.toFixed(2)}</strong></td>
                         </tr>
                     </tfoot>
