@@ -49,3 +49,9 @@
   width: 150px;
   border: none;
 }
+
+.navbar_padding 
+{
+  visibility: hidden;
+  padding-top: 2rem;
+}

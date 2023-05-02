@@ -13,12 +13,11 @@ import Landing from './components/Landing';
 function App() {
 
   return (
-    // this whole thing within the div should be wrapped in a router.
-    // there should be a navbar at the top of the screen to swap between pages.
   <div className="App">
     <Container>
       <Router>
         <StoreNavBar />
+        <p className='navbar_padding'>padding for navbar</p>
         <Routes>
           <Route path="/" element = {<Landing />} />
           <Route path="/products" element = {<ProductPage />} />

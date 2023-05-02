@@ -57,7 +57,7 @@ function ChcekOut() {
     return (
 
         <div className="container">
-           {!showInvoice ? <h1 className="col-10">Shopping Cart</h1>: <h1>Thank You For Your Order!</h1>} 
+           {!showInvoice ? <h1 className="col-12">Shopping Cart</h1>: <h1>Thank You For Your Order!</h1>} 
             <table className="table table-striped">
                 <thead>
                     <tr>

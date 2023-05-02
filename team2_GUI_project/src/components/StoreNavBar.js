@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 export default class StoreNavBar extends Component {
   render() {
     return (
-      <Navbar bg="light" expand="lg" sticky="top" fixed="top" variant="light">
+      <Navbar bg="light" expand="lg" fixed="top" variant="light">
         <Container>
           <Link className="nav_item" to="/">
           <Navbar.Brand>Origami Store</Navbar.Brand>
