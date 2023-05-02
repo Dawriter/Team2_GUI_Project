@@ -7,7 +7,22 @@ function ShoppingCart() {
     //delete items from shopping cart
     const delItem = (itemId) => {
         const item = items.find(item => item.id === itemId);
+
+        var deletedItems = [];
+
+        if (localStorage.getItem("deletedItems") != null)
+        {
+            deletedItems = JSON.parse(localStorage.getItem("deletedItems"));
+        }
+
         if (item) {
+
+            const index = deletedItems.push(item);
+            localStorage.setItem("deletedItems", JSON.stringify(deletedItems));
+            deletedItems = JSON.parse(localStorage.getItem("deletedItems"));
+		    deletedItems[index - 1].quantity = 1;
+            localStorage.setItem("deletedItems", JSON.stringify(deletedItems));
+
           const quantity = item.quantity;
           if (quantity > 1) { //check to see quantity, if > 1 remove 1 quantity from cart, if 1 then remove entire item from cart
             const updatedItems = items.map(item => item.id === itemId ? { ...item, quantity: item.quantity - 1 } : item);
@@ -48,7 +63,7 @@ function ShoppingCart() {
                 {items.map((item) => (
                     <div className="col-md-4" key={item.id}>
                         <div className="card mb-4 shadow-sm">
-                            <img src={require("../data/images/" + item.image + ".png")} className="card-img-top" />
+                            <img src={require("../data/images/" + item.image + ".png")} className="card-img-top" alt={item.image}/>
                             <div className="card-body">
                                 <h3 className="card-title">{item.model}</h3>
                                 <p className="card-text">Price: {item.price}</p>

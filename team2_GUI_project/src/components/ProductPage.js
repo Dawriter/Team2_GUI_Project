@@ -2,7 +2,7 @@ import Origami from "./Origami.js"
 import origamiList from "../data/origami.json"  
 import 'bootstrap/dist/css/bootstrap.css';
 import { Row, Col } from 'react-bootstrap';
-import {React, useState, useEffect} from 'react';
+import {React, useState} from 'react';
 
 export default function ProductPage() {
 
@@ -21,7 +21,7 @@ export default function ProductPage() {
 	// If an item was deleted from the shopping cart, re-adds it to the quantity.
 	if (deletedItems != null)
 	{
-		for (var i = 0; i < deletedItems.length; i++)
+		for (let i = 0; i < deletedItems.length; i++)
 		{
 			var item = origamiList.find(item => item.id === deletedItems[i].id);
 			if (item)
