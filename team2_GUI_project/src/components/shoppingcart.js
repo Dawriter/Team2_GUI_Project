@@ -60,7 +60,7 @@ function ShoppingCart() {
 
     return (
         <div className="container">
-            <h1 className="col-10">Shopping Cart</h1>
+            <h1 className="col-12">Shopping Cart</h1>
             {/* main component displaying items in cart */}
             <div className="row">
                 {items.map((item) => (

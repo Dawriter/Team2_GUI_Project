@@ -8,18 +8,18 @@ import { Link } from 'react-router-dom';
 export default class StoreNavBar extends Component {
   render() {
     return (
-      <Navbar bg="light" expand="lg" sticky="top" variant="light">
+      <Navbar bg="light" expand="lg" sticky="top" fixed="top" variant="light">
         <Container>
           <Link className="nav_item" to="/">
-          <Navbar.Brand>Origami</Navbar.Brand>
+          <Navbar.Brand>Origami Store</Navbar.Brand>
           </Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Link className="nav_item" to="/">Home</Link>
-              <Link className="nav_item" to="/products">Browse</Link>
-              <Link className="nav_item" to="/cart">Shopping Cart</Link>
-              <Link className="nav_item" to="/checkout">Check Out</Link>
+              <Link className="nav_item" to="/"><button className="nav_button">Home</button></Link>
+              <Link className="nav_item" to="/products"><button className="nav_button">Browse</button></Link>
+              <Link className="nav_item" to="/cart"><button className="nav_button">Shopping Cart</button></Link>
+              <Link className="nav_item" to="/checkout"><button className="nav_button">Check Out</button></Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -1,7 +1,7 @@
 {
   "name": "oragami-store",
   "version": "0.1.0",
-  "homepage": "http://personal.psu.edu/gjd5219/lab7_2_react",
+  "homepage": "http://personal.psu.edu/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

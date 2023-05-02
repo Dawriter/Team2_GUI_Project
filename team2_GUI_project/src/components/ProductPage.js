@@ -144,11 +144,11 @@ export default function ProductPage() {
 
     <div className="ProductPage">
 	<h1>Products</h1>
+	<Row lg='d-grid gap-3' className="border bg-success rounded border-5 border-success">
 	<h2>Flowers</h2>
-	<Row lg='d-grid gap-3'>
     {
 		flowers.map((origami) => (
-		<Col md="3" lg="2" className="mx-auto p-2 border bg-secondary rounded border-4 border-dark">
+		<Col md="3" lg="2" className="mx-auto p-2 border bg-light rounded border-2 border-secondary">
 		<img width="150px" height="150px" src={require('../data/images/' + origami.image + ".png")} alt={origami.image}></img>
 		<Origami model={origami.model} price={origami.price} quantity={origami.quantity} key={origami.id}
 		clickFunc={tryAddFlowerToCart} id={origami.id}/>
@@ -157,11 +157,11 @@ export default function ProductPage() {
 	}
 	</Row>
 	<hr />
+	<Row lg='d-grid gap-3' className="border bg-info rounded border-5 border-info">
 	<h2>Other Objects</h2>
-	<Row lg='d-grid gap-3'>
 	{
 		miscList.map(origami => (
-		<Col md="3" lg="2" className="mx-auto p-2 border bg-secondary rounded border-4 border-dark">
+		<Col md="3" lg="2" className="mx-auto p-2 border bg-light rounded border-2 border-secondary">
 		<img width="150px" height="150px" src={require('../data/images/' + origami.image + ".png")} alt={origami.image}></img>
 		<Origami model={origami.model} price={origami.price} quantity={origami.quantity} key={origami.id}
 		clickFunc={tryAddMiscToCart} id={origami.id}/>
