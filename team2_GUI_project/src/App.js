@@ -15,7 +15,7 @@ function App() {
   return (
   <div className="App">
     <Container>
-      <Router basename="team2_GUI_project">
+      <Router basename="Team2_GUI_Project">
         <StoreNavBar />
         <p className='navbar_padding'>padding for navbar</p>
         <Routes>
